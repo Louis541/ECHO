@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:," />
+
+</head>
+<body>
+    <div class="header">
+        <div id="timestamp" class="blur-effect">00:00, PVD, 2025</div>
+        <h1 id="echoTitle">
+            "<span class="echo">E</span><span class="echo">C</span><span class="echo">H</span><span class="echo">O</span>"
+        </h1>
+        <svg width="0" height="0">
+            <defs>
+                <!-- Wavy Distortion Filter -->
+                <filter id="wave">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.01 0.4" numOctaves="3" result="warp" />
+                    <feDisplacementMap in="SourceGraphic" in2="warp" scale="8" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="about-container">
+            <button id="aboutButton" class="blur-effect">ABOUT</button>
+        </div>
+    </div>
+
+    <div class="works">
+        <p class="word blur-effect" data-word="FIRST STEPS" data-description="Tiny wobbles, cheering parents, 2005">FIRST STEPS</p>
+        <p class="word blur-effect" data-word="CRAYONS" data-description="Doodles on walls, scoldings, and giggles, 2009">CRAYONS</p>
+        <p class="word blur-effect" data-word="SWINGS" data-description="Flying high, pretending to touch the sky, 2013">SWINGS</p>
+        <p class="word blur-effect" data-word="ICE CREAM TRUCK" data-description="Chasing jingles down the street, 2015">ICE CREAM TRUCK</p>
+        <p class="word blur-effect" data-word="LOST TOY" data-description="Tears over a missing teddy, 2007">LOST TOY</p>
+        <p class="word blur-effect" data-word="FIREWORKS" data-description="Hands over ears, eyes full of color, 2010">FIREWORKS</p>
+        <p class="word blur-effect" data-word="RECESS" data-description="Racing to the playground, scraped knees, 2011">RECESS</p>
+        <p class="word blur-effect" data-word="REPORT CARD" data-description="Hiding it in the backpack, 2018">REPORT CARD</p>
+        <p class="word blur-effect" data-word="SNOW DAY" data-description="No school, endless snow angels, 2019">SNOW DAY</p>
+        <p class="word blur-effect" data-word="FIRST CRUSH" data-description="Awkward smiles, racing heartbeats, 2016">FIRST CRUSH</p>
+        <p class="word blur-effect" data-word="SLEEPOVER" data-description="Pillow fights, horror stories, too much candy, 2015">SLEEPOVER</p>
+        <p class="word blur-effect" data-word="HEADPHONES" data-description="Blocking out the world, rewinding favorite songs, 2016">HEADPHONES</p>
+        <p class="word blur-effect" data-word="LAST DAY OF SCHOOL" data-description="Signatures on shirts, long hugs, teary eyes, 2024">LAST DAY OF SCHOOL</p>
+        <p class="word blur-effect" data-word="ROAD TRIP" data-description="Gas station snacks, getting lost, loud singalongs, 2012">ROAD TRIP</p>
+        <p class="word blur-effect" data-word="SUMMER JOB" data-description="First paycheck, feeling independent, 2024">SUMMER JOB</p>
+        <p class="word blur-effect" data-word="MIDNIGHT TALKS" data-description="Whispered confessions, safe spaces, 2021">MIDNIGHT TALKS</p>
+        <p class="word blur-effect" data-word="HOME ALONE" data-description="Blasting music, feeling grown-up, 2014">HOME ALONE</p>
+        <p class="word blur-effect" data-word="SUNSET DRIVE" data-description="Windows down, favorite song playing, golden light, 2024">SUNSET DRIVE</p>
+        <p class="word blur-effect" data-word="GRATITUDE" data-description="Realizing how far I've come, 2025">GRATITUDE</p>
+        <p class="word blur-effect" data-word="MOVING OUT" data-description="Empty room, nervous excitement, 2024">MOVING OUT</p>
+        <p class="word blur-effect" data-word="NEW CHAPTER" data-description="Email refresh, heart pounding, university acceptance letter, 2025">NEW CHAPTER</p>
+        <p class="word blur-effect" data-word="WINTER SCARF" data-description="Wrapped in warmth, breath visible in the cold, mom's smell, 2011">WINTER SCARF</p>
+        <p class="word blur-effect" data-word="FIRST VIDEO GAME" data-description="Hands gripping the controller, wide-eyed wonder, 2012">FIRST VIDEO GAME</p>
+        <p class="word blur-effect" data-word="FAMILY DINNER" data-description="Laughter between bites, the smell of home, 2016">FAMILY DINNER</p>
+        <p class="word blur-effect" data-word="CARNIVAL NIGHT" data-description="Cotton candy fingers, flashing lights, dizzy rides, 2014">CARNIVAL NIGHT</p>
+        <p class="word blur-effect" data-word="FIRST PHONE" data-description="Typing too slow, emoji overload, 2015">FIRST PHONE</p>
+        <p class="word blur-effect" data-word="SUMMER RAIN" data-description="Drenched, laughing, feeling infinite, 2023">SUMMER RAIN</p>
+        <p class="word blur-effect" data-word="FIRST FLIGHT" data-description="Looking down at tiny cities, window seat awe, 2012">FIRST FLIGHT</p>
+        <p class="word blur-effect" data-word="UNFINISHED NOTEBOOK" data-description="Half-written dreams, a story waiting to be told, 2025">UNFINISHED NOTEBOOK</p>
+    </div>
+
+    <!-- Modal Box -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">Close</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <p id="modalDate" class="modal-date"></p>
+        </div>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

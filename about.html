@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ECHO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:," />
+</head>
+<body class="about-page">  <!-- Added class to identify About Page -->
+
+    <!-- Title at Top Left -->
+    <h1 id="aboutTitle">
+        Echo is a digital archive of <br>
+        fading and resurfacing <br>
+        memories, reflecting <br>
+        how the past <br>
+        shapes us.
+    </h1>
+
+    <!-- About Description at Bottom Right -->
+    <div class="about-text">
+        <p class="blur-effect" data-image="images/annie-spratt-bf4Ocun5JnM-unsplash.jpg">
+            Echo is a manifestation of memory. A digital archive of shared experiences, 
+            it explores how memories shape our identity—some clear, others fragmented, yet all part of who we are.
+        </p>
+
+        <p class="blur-effect" data-image="images/annie-spratt-eDFDWO93ICM-unsplash.jpg">
+            The 2005–2025 timeline represents my journey through universally relatable moments—childhood wonders, 
+            quiet reflections, and milestones of growing up. The uneven structure of the timeline mimics how memory works—sometimes vivid, 
+            sometimes hazy, never perfectly linear.
+        </p>
+
+        <p class="blur-effect" data-image="images/brandon-hoogenboom-2PSDNF4aG6U-unsplash.jpg">
+            The blurred word list reflects how memories fade yet remain within us. Hovering over a moment brings it into focus, 
+            just like how certain memories resurface before slipping away again. Some stay sharp, guiding us through life, 
+            while others linger quietly in the background.
+        </p>
+    </div>
+
+
+
+
+
+    <a id="backButton" href="index.html">
+        <img src="reshot-icon-arrow-left-CYVEH429PZ.svg" alt="">
+    </a>
+    
+   <!-- Image Container -->
+   <div id="imageContainer"></div>
+
+
+    <script>
+        // Back button functionality
+        document.getElementById("backButton").addEventListener("click", () => {
+            window.history.back(); // Navigates back to the previous page
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".blur-effect").forEach(paragraph => {
+        paragraph.addEventListener("mouseenter", function () {
+            this.style.filter = "blur(0)"; // Remove blur immediately
+        });
+
+        paragraph.addEventListener("mouseleave", function () {
+            const element = this;
+            setTimeout(() => {
+                element.style.filter = "blur(8px)"; // Blur returns after 5 seconds
+            }, 5000); // 5000ms = 5 seconds
+        });
+    });
+});
+        
+document.addEventListener("DOMContentLoaded", function () {
+    // Select the image container
+    const imageContainer = document.getElementById("imageContainer");
+
+    // Select all paragraphs with blur effect
+    const paragraphs = document.querySelectorAll(".blur-effect");
+
+    paragraphs.forEach(paragraph => {
+        paragraph.addEventListener("mouseenter", function () {
+            this.style.filter = "blur(0)"; // Remove blur effect
+            
+            const imageUrl = this.getAttribute("data-image"); // Get the assigned image
+            if (imageUrl) {
+                imageContainer.style.backgroundImage = `url('${imageUrl}')`;
+                imageContainer.style.opacity = "1"; // Make it visible
+                imageContainer.style.visibility = "visible"; // Ensure it's not hidden
+            }
+        });
+
+        paragraph.addEventListener("mouseleave", function () {
+            const element = this;
+            setTimeout(() => {
+                element.style.filter = "blur(8px)"; // Blur returns after 5 seconds
+            }, 5000); // 5 seconds delay
+
+            // Check if any paragraph is still being hovered
+            setTimeout(() => {
+                if (![...paragraphs].some(p => p.matches(":hover"))) { 
+                    imageContainer.style.opacity = "0"; 
+                    setTimeout(() => {
+                        imageContainer.style.visibility = "hidden";
+                    }, 400); // Delayed to allow fade-out effect
+                }
+            }, 5000); // Hide image after 5 seconds if NO paragraphs are hovered
+        });
+    });
+});
+
+
+
+
+    </script>
+</body>
+</html>

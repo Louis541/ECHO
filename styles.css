@@ -1,0 +1,241 @@
+body {
+    font-family: "Times New Roman", serif;
+    background-color: white;
+    color: #090909;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* Blur Effect */
+.blur-effect {
+    filter: blur(8px);
+    transition: filter 0.4s ease-in-out;
+}
+
+/* Remove Blur on Hover */
+.blur-effect:hover {
+    filter: blur(0);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fc4600;
+}
+
+#timestamp {
+    font-size: 22px;
+    text-align: left;
+    flex: 1; /* Align to the left */
+    margin-left: 40px;
+}
+
+h1 {
+    flex: 1;
+    text-align: center; /* Center the name */
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: 50px;
+    margin-left: -35px;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #fc4600;
+}
+
+/* ABOUT Button */
+.about-container {
+    flex: 1;
+    text-align: right;
+    margin-right: 3px;
+}
+
+
+#aboutButton {
+    background: none;
+    border: none;
+    color: #fc4600;
+    font-size: 22px;
+    cursor: pointer;
+    font-family: "Times New Roman", serif;
+    margin-right: 25px;
+    text-decoration: none;
+}
+
+
+.works {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+.word {
+    font-size: 50px; /* Larger text */
+    cursor: pointer;
+    display: block;
+    transition: color 0.1s ease-in-out;
+    white-space: nowrap; /* Prevents text wrapping */
+    margin: 0; /* Removes default paragraph margin */
+    padding: 0; /* Removes padding */
+    line-height: 1; /* Ensures compact spacing */
+}
+
+.word span {
+    display: inline-block;
+    transition: transform 0.1s ease-in-out, color 0.1s ease-in-out; /* Instant expansion */
+}
+
+
+/* Modal Box Styling */
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 50%;
+    max-width: 400px;
+    background-color: white;
+    border: 2px solid #fc4600;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fc4600;
+    font-weight: normal;
+}
+
+.modal p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #fc4600;
+}
+
+.modal-date {
+    font-size: 16px;
+    font-style: italic;
+    color: #fc4600;
+}
+
+.close {
+    font-size: 16px;
+    color: #fc4600;
+    cursor: pointer;
+    text-align: right;
+    display: block;
+}
+
+#echoTitle {
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: "Times New Roman", serif;
+    filter: url(#wave); /* Apply wavy effect */
+    animation: waveMove 3s infinite linear alternate; /* Slow wave movement */
+}
+
+/* Individual letter shrinking effect */
+.echo {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Smooth floating animation */
+@keyframes waveMove {
+    0% { transform: translateY(2px); }
+    100% { transform: translateY(-2px); }
+}
+
+
+/* Title Styling - Properly Formatted with Line Breaks */
+#aboutTitle {
+    font-size: 70px;
+    font-weight: 800;
+    color: #fc4600;
+    position: absolute;
+    top: 50px;
+    left: 120px;
+    max-width: 50%; /* Keeps it from stretching too far */
+    line-height: 1; /* Ensures proper spacing between lines */
+    text-align: left; /* Keeps alignment to the left */
+    margin-top: 20px;
+}
+
+/* About Text - Bottom Right, But Starts Where the Title Ends */
+.about-text {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 27%;
+    opacity: 0.85;
+    position: absolute;
+    bottom: 120px; /* Positioned towards the bottom */
+    left: calc(40px + 45% + 30px); /* Starts where the title ends */
+    text-align: left;
+    color: #fc4600;
+    margin-bottom: -60px;
+    margin-left: -40px;
+}
+
+/* Hover Effect: Text Becomes Clearer */
+.about-text:hover {
+    opacity: 1;
+}
+
+/* Back Button - Only Arrow, No Text */
+#backButton {
+    position: absolute;
+    bottom: 16%;
+    left: 11%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none; /* Ensure no underline */
+    display: block;
+}
+
+/* SVG Arrow Styling */
+#backButton img {
+    width: 300px; /* Large size */
+    height: auto;
+    display: block; /* Prevents inline spacing issues */
+    filter: invert(35%) sepia(100%) saturate(1000%) hue-rotate(0deg); /* Orange color */
+    transition: transform 0.2s ease-in-out;
+    margin-left: 30px;
+}
+
+/* Hover Effect */
+#backButton:hover img {
+    transform: scale(1.8); /* Enlarges slightly */
+}
+
+
+
+/* Image Display - Top Right */
+#imageContainer {
+    position: absolute;
+    top: 210px;
+    right: 90px;
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out;
+    z-index: 10; /* Ensure it appears above content */
+}
